@@ -1,0 +1,7 @@
+
+.demo-area {
+    @include container();
+
+    background: yellow;
+    height: auto;
+}

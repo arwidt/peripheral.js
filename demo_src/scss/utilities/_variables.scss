@@ -1,0 +1,73 @@
+/*
+  Colors
+*/
+
+$colors__general_lightest:                #FFF;
+$colors__general_light:                   #FDFDFD;
+$colors__general_contrast--light:         #F7F7F7;
+$colors__general_contrast:                #F0F0F0;
+$colors__general_primary:                 #44C200;
+$colors__general_darkest:                 #000000;
+$colors__general_error:                   #BB0000;
+
+$colors__objects_placeholder-background:  #F5F5F5;
+$colors__objects_placeholder-icon:        #E0E0E0;
+
+$colors__border_lightshadow:              #DEDEDF;
+$colors__shadow_topbar:                   #CCC;
+
+$colors__background-primary:              #f0f0f0;
+$colors__background-contrast:             #f7f7f7;
+
+$colors__button-icon:                     #545454;
+$colors__button-default:                  $colors__shadow_topbar;
+$colors__button-default--top:             #FEFEFE;
+$colors__button-default--bottom:          #F1F1F1;
+
+$colors__typography-default:              #333;
+$colors__typography-paragraph-light:	  lighten($colors__typography-default, 40%);
+$colors__typography-paragraph: 			  $colors__typography-default;
+$colors__typography-paragraph-contrast:	  $colors__general_lightest;
+$colors__typography-link: 				  #198cdd;
+$colors__typography-link-neutral: 		  $colors__typography-default;
+
+$colors__typography-header-primary: 	  $colors__typography-link-neutral;
+$colors__typography-active-text: 		  #ffa500;
+$colors__typography-active-text-alt: 	  #7d9b19;
+
+$colors__button-facebook:                 #5d82d1;
+$colors__button-facebook-dark:            #3b5998;
+
+
+
+
+/*
+  Borders
+*/
+
+$borders__thin-default: 1px solid $colors__border_lightshadow;
+$borders__thin-valid: 1px solid $colors__general_primary;
+$borders__thin-invalid: 1px solid $colors__general_error;
+
+
+/*
+  Typography
+*/
+
+
+/* Font families */
+
+$typography-default: "Proxima Nova", "MS Sans Serif", Geneva, sans-serif;
+$typography-alt: Oswald, 'Arial Black', sans-serif;
+
+/* Font weights */
+
+$font-weight__thin: 300;
+$font-weight__normal: 400;
+$font-weight__bold: 600;
+
+/*
+  Animations
+*/
+
+$transition_default: cubic-bezier(0.17, 0.04, 0.03, 0.94);

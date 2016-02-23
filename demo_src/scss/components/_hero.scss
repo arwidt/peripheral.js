@@ -1,0 +1,7 @@
+
+.hero {
+    @include container();
+
+    background: blue;
+    height: 400px;
+}

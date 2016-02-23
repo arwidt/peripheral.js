@@ -1,0 +1,6 @@
+.top-menu {
+    @include container();
+
+    background: red;
+    height: 100px;
+}

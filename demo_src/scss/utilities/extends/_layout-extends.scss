@@ -1,0 +1,245 @@
+/*
+    Content card
+    - Creates layout for a content card.
+*/
+
+%contentcard {
+    position: relative;
+    background: $colors__general_lightest;
+    border-radius: 5px;
+    max-width: 100%;
+    border: 1px solid #DDD;
+    border-bottom-width: 2px;
+}
+
+%contentcard_image_fallback {
+    @extend %placeholder-background;
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-color: $colors__objects_placeholder-background;
+    background-position: 50%;
+    width: 100%;
+    height: 76px;
+    overflow: hidden;
+
+    @include breakpoint($breakpoint--iphone-horizontal) {
+        height: 141px;
+    }
+
+    @include breakpoint($breakpoint--sm) {
+        height: 123px;
+    }
+
+    @include breakpoint($breakpoint--md) {
+        height: 161px;
+    }
+
+    @include breakpoint($breakpoint--lg) {
+        height: 164px;
+    }
+}
+
+%contentcard-action {
+    cursor: pointer;
+
+    .device--desktop & {
+        transition: box-shadow .3s $transition_default;
+
+        @include breakpoint($breakpoint--sm) {
+            &:hover {
+                box-shadow: 0px 1px 5px -1px #aaa;
+                -moz-box-shadow: 0px 1px 5px -1px #aaa;
+                -webkit-box-shadow: 0px 1px 10px -1px #aaa;
+            }
+        }
+    }
+}
+
+%contentcard-image-action {
+    .device--desktop & {
+        backface-visibility: hidden;
+        transform: translate3d(0, 0, 0);
+
+        img[class^="card__image"], img[class*="card__image"] {
+            max-height: 300px;
+
+            &:hover {
+                cursor: zoom-in;
+            }
+        }
+
+        @include breakpoint($breakpoint--sm) {
+            img[class^="card__image"], img[class*="card__image"] {
+                transition: transform .3s $transition_default;
+            }
+
+            &:hover {
+                img[class^="card__image"], img[class*="card__image"] {
+                    transform: scale(1.1, 1.1);
+                }
+            }
+        }
+    }
+}
+
+%content-wrapper {
+    position: relative;
+    margin: 4.07938% 0 0;
+
+    > :first-child {
+        padding-top: 0;
+    }
+}
+
+/*
+    User avatar image
+*/
+
+%user-avatar-fallback {
+    background-image: url("data:image/svg+xml;utf8,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%0A%3C%21--%20Generator%3A%20Adobe%20Illustrator%2019.1.0%2C%20SVG%20Export%20Plug-In%20.%20SVG%20Version%3A%206.00%20Build%200%29%20%20--%3E%0A%3Csvg%20version%3D%221.1%22%20id%3D%22Layer_1%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20xmlns%3Axlink%3D%22http%3A//www.w3.org/1999/xlink%22%20x%3D%220px%22%20y%3D%220px%22%0A%09%20viewBox%3D%220%200%2098.8%2093.3%22%20style%3D%22enable-background%3Anew%200%200%2098.8%2093.3%3B%22%20xml%3Aspace%3D%22preserve%22%3E%0A%3Cstyle%20type%3D%22text/css%22%3E%0A%09.st0%7Bfill%3A%23e0e0e0%3B%7D%0A%3C/style%3E%0A%3Cg%3E%0A%09%3Cg%3E%0A%09%09%3Cg%3E%0A%09%09%09%3Cpath%20class%3D%22st0%22%20d%3D%22M68.4%2C43.2c-0.1%2C0.6%2C2.2%2C10.1-6.2%2C18.6c0.4%2C0.2%2C12-7.5%2C9.7-16.2C71.4%2C43.7%2C68.4%2C42.8%2C68.4%2C43.2z%22/%3E%0A%09%09%09%3Cpath%20class%3D%22st0%22%20d%3D%22M93%2C13C88%2C4.5%2C77.5-1.2%2C67.5%2C0.6C60.4%2C2%2C54%2C6.3%2C49.4%2C11.9c-4.6-5.6-11-10-18.1-11.3C27.7%2C0%2C24%2C0.2%2C20.6%2C1.4%0A%09%09%09%09c-12.2%2C4.1-19%2C14.5-20%2C29.4C-1%2C66.3%2C39.7%2C64.9%2C37.2%2C93C80.1%2C77.8%2C111.1%2C41.5%2C93%2C13z%20M19.1%2C32.8c-0.4%2C0-0.8-0.1-1.2-0.2%0A%09%09%09%09c-1.5-0.6-2.1-2.3-1.5-3.8c3-6.8%2C9.9-11%2C17.1-10.6c4.8%2C0.3%2C9.3%2C2.6%2C12.4%2C6.2c1%2C1.2%2C0.9%2C3-0.3%2C4.1c-1.2%2C1-3%2C0.9-4.1-0.3%0A%09%09%09%09c-2.1-2.5-5.1-4-8.4-4.2c-4.8-0.3-9.5%2C2.6-11.5%2C7.1C21.3%2C32.2%2C20.2%2C32.8%2C19.1%2C32.8z%20M50.5%2C69c-2.4%2C0-4.8-0.3-7.3-1.1%0A%09%09%09%09c-8.8-2.6-16.4-8.7-21.2-16.5c-1.2-1.9%2C0.5-3.7%2C2.3-3.7c0.8%2C0%2C1.5%2C0.3%2C2%2C1.2c3.9%2C6.3%2C10.2%2C11.8%2C17.4%2C13.9c2.1%2C0.6%2C4.1%2C0.9%2C6.1%2C1%0A%09%09%09%09c6.3-6%2C5.1-13.2%2C5.1-17.3c-0.1-5.7%2C4.2-12.2%2C11-12.7c0.2%2C0%2C0.4%2C0%2C0.6%2C0c5.2%2C0%2C12.4%2C3.1%2C12.8%2C13.3C79.8%2C55.5%2C67.5%2C69%2C50.5%2C69z%22/%3E%0A%09%09%3C/g%3E%0A%09%3C/g%3E%0A%3C/g%3E%0A%3C/svg%3E%0A");
+    background-position: center center;
+    background-size: 60%;
+}
+
+%user-avatar {
+    @extend %hide-mobile;
+    border-radius: 50%;
+    border: $borders__thin-default;
+    overflow: hidden;
+
+    //@extend %placeholder-background;
+    //background-size: 90%;
+    background-repeat: no-repeat;
+    background-color: $colors__objects_placeholder-background;
+    background-position: 50% 60%;
+
+    //background-image: url("data:image/svg+xml;utf8,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%0A%3C%21--%20Generator%3A%20Adobe%20Illustrator%2019.1.0%2C%20SVG%20Export%20Plug-In%20.%20SVG%20Version%3A%206.00%20Build%200%29%20%20--%3E%0A%3Csvg%20version%3D%221.1%22%20id%3D%22Layer_1%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20xmlns%3Axlink%3D%22http%3A//www.w3.org/1999/xlink%22%20x%3D%220px%22%20y%3D%220px%22%0A%09%20viewBox%3D%220%200%2098.8%2093.3%22%20style%3D%22enable-background%3Anew%200%200%2098.8%2093.3%3B%22%20xml%3Aspace%3D%22preserve%22%3E%0A%3Cstyle%20type%3D%22text/css%22%3E%0A%09.st0%7Bfill%3A%23e0e0e0%3B%7D%0A%3C/style%3E%0A%3Cg%3E%0A%09%3Cg%3E%0A%09%09%3Cg%3E%0A%09%09%09%3Cpath%20class%3D%22st0%22%20d%3D%22M68.4%2C43.2c-0.1%2C0.6%2C2.2%2C10.1-6.2%2C18.6c0.4%2C0.2%2C12-7.5%2C9.7-16.2C71.4%2C43.7%2C68.4%2C42.8%2C68.4%2C43.2z%22/%3E%0A%09%09%09%3Cpath%20class%3D%22st0%22%20d%3D%22M93%2C13C88%2C4.5%2C77.5-1.2%2C67.5%2C0.6C60.4%2C2%2C54%2C6.3%2C49.4%2C11.9c-4.6-5.6-11-10-18.1-11.3C27.7%2C0%2C24%2C0.2%2C20.6%2C1.4%0A%09%09%09%09c-12.2%2C4.1-19%2C14.5-20%2C29.4C-1%2C66.3%2C39.7%2C64.9%2C37.2%2C93C80.1%2C77.8%2C111.1%2C41.5%2C93%2C13z%20M19.1%2C32.8c-0.4%2C0-0.8-0.1-1.2-0.2%0A%09%09%09%09c-1.5-0.6-2.1-2.3-1.5-3.8c3-6.8%2C9.9-11%2C17.1-10.6c4.8%2C0.3%2C9.3%2C2.6%2C12.4%2C6.2c1%2C1.2%2C0.9%2C3-0.3%2C4.1c-1.2%2C1-3%2C0.9-4.1-0.3%0A%09%09%09%09c-2.1-2.5-5.1-4-8.4-4.2c-4.8-0.3-9.5%2C2.6-11.5%2C7.1C21.3%2C32.2%2C20.2%2C32.8%2C19.1%2C32.8z%20M50.5%2C69c-2.4%2C0-4.8-0.3-7.3-1.1%0A%09%09%09%09c-8.8-2.6-16.4-8.7-21.2-16.5c-1.2-1.9%2C0.5-3.7%2C2.3-3.7c0.8%2C0%2C1.5%2C0.3%2C2%2C1.2c3.9%2C6.3%2C10.2%2C11.8%2C17.4%2C13.9c2.1%2C0.6%2C4.1%2C0.9%2C6.1%2C1%0A%09%09%09%09c6.3-6%2C5.1-13.2%2C5.1-17.3c-0.1-5.7%2C4.2-12.2%2C11-12.7c0.2%2C0%2C0.4%2C0%2C0.6%2C0c5.2%2C0%2C12.4%2C3.1%2C12.8%2C13.3C79.8%2C55.5%2C67.5%2C69%2C50.5%2C69z%22/%3E%0A%09%09%3C/g%3E%0A%09%3C/g%3E%0A%3C/g%3E%0A%3C/svg%3E%0A");
+    background-image: url("data:image/svg+xml;charset=utf8,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%0A%3C%21--%20Generator%3A%20Adobe%20Illustrator%2019.1.0%2C%20SVG%20Export%20Plug-In%20.%20SVG%20Version%3A%206.00%20Build%200%29%20%20--%3E%0A%3Csvg%20version%3D%221.1%22%20id%3D%22Layer_1%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20xmlns%3Axlink%3D%22http%3A//www.w3.org/1999/xlink%22%20x%3D%220px%22%20y%3D%220px%22%0A%09%20viewBox%3D%220%200%2098.8%2093.3%22%20style%3D%22enable-background%3Anew%200%200%2098.8%2093.3%3B%22%20xml%3Aspace%3D%22preserve%22%3E%0A%3Cstyle%20type%3D%22text/css%22%3E%0A%09.st0%7Bfill%3A%23e0e0e0%3B%7D%0A%3C/style%3E%0A%3Cg%3E%0A%09%3Cg%3E%0A%09%09%3Cg%3E%0A%09%09%09%3Cpath%20class%3D%22st0%22%20d%3D%22M68.4%2C43.2c-0.1%2C0.6%2C2.2%2C10.1-6.2%2C18.6c0.4%2C0.2%2C12-7.5%2C9.7-16.2C71.4%2C43.7%2C68.4%2C42.8%2C68.4%2C43.2z%22/%3E%0A%09%09%09%3Cpath%20class%3D%22st0%22%20d%3D%22M93%2C13C88%2C4.5%2C77.5-1.2%2C67.5%2C0.6C60.4%2C2%2C54%2C6.3%2C49.4%2C11.9c-4.6-5.6-11-10-18.1-11.3C27.7%2C0%2C24%2C0.2%2C20.6%2C1.4%0A%09%09%09%09c-12.2%2C4.1-19%2C14.5-20%2C29.4C-1%2C66.3%2C39.7%2C64.9%2C37.2%2C93C80.1%2C77.8%2C111.1%2C41.5%2C93%2C13z%20M19.1%2C32.8c-0.4%2C0-0.8-0.1-1.2-0.2%0A%09%09%09%09c-1.5-0.6-2.1-2.3-1.5-3.8c3-6.8%2C9.9-11%2C17.1-10.6c4.8%2C0.3%2C9.3%2C2.6%2C12.4%2C6.2c1%2C1.2%2C0.9%2C3-0.3%2C4.1c-1.2%2C1-3%2C0.9-4.1-0.3%0A%09%09%09%09c-2.1-2.5-5.1-4-8.4-4.2c-4.8-0.3-9.5%2C2.6-11.5%2C7.1C21.3%2C32.2%2C20.2%2C32.8%2C19.1%2C32.8z%20M50.5%2C69c-2.4%2C0-4.8-0.3-7.3-1.1%0A%09%09%09%09c-8.8-2.6-16.4-8.7-21.2-16.5c-1.2-1.9%2C0.5-3.7%2C2.3-3.7c0.8%2C0%2C1.5%2C0.3%2C2%2C1.2c3.9%2C6.3%2C10.2%2C11.8%2C17.4%2C13.9c2.1%2C0.6%2C4.1%2C0.9%2C6.1%2C1%0A%09%09%09%09c6.3-6%2C5.1-13.2%2C5.1-17.3c-0.1-5.7%2C4.2-12.2%2C11-12.7c0.2%2C0%2C0.4%2C0%2C0.6%2C0c5.2%2C0%2C12.4%2C3.1%2C12.8%2C13.3C79.8%2C55.5%2C67.5%2C69%2C50.5%2C69z%22/%3E%0A%09%09%3C/g%3E%0A%09%3C/g%3E%0A%3C/g%3E%0A%3C/svg%3E%0A");
+    //background-position: center center;
+    background-size: 60%;
+
+}
+
+/*
+    Full width images
+*/
+
+%full-width-image {
+    display: block;
+    width: 100%;
+    //height: auto;
+}
+
+/*
+    Section header
+*/
+
+%section-header {
+    position: relative;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-content: stretch;
+    align-items: flex-start;
+
+    &::before, &::after, > h2 {
+        align-self: center;
+        order: 0;
+    }
+
+    &::before, &::after {
+        content: '';
+        height: 1px;
+        flex: 1 1 auto;
+    }
+
+    &::before {
+        background: linear-gradient(to right,transparent 0,#b3b3b3 100%);
+    }
+
+    &::after {
+        background: linear-gradient(to right,#b3b3b3 0,transparent 100%);
+    }
+
+    > h2 {
+        padding: 0 gutter();
+        flex: 0 1 auto;
+    }
+}
+
+/*
+    Replace text with icon
+*/
+
+%replace-text-with-icon {
+    position: relative;
+    text-indent: -9999px;
+    overflow: hidden;
+    text-align: left;
+
+    &::before {
+        transform: translate(-50%, -50%);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        text-indent: 0;
+    }
+}
+
+/*
+    Modal layout
+*/
+
+%modal-overlay {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    max-height: none;
+    background-color: rgba(246,246,246,.97);
+    opacity: 1;
+}
+
+/*
+    Pop-down menu / modal
+*/
+
+%pop-down-menu {
+    @extend %contentcard;
+    max-height: 0;
+    opacity: 0;
+    position: absolute;
+    display: inline-block;
+    z-index: 6;
+    transition: opacity 150ms ease, max-height 100ms ease;
+    transform: translate3d(0, 0, 0);
+    overflow: hidden;
+
+    &::before {
+        content: "";
+        display: block;
+        width: 20px;
+        height: 20px;
+        transform: rotate(45deg);
+        background: $colors__general_lightest;
+        border-left: 1px solid #eee;
+        border-top: 1px solid #eee;
+        position: absolute;
+        top: -10px;
+        left: 50%;
+        margin-left: -10px;
+        z-index: -1;
+    }
+
+    &.open {
+        overflow: visible;
+        opacity: 1;
+        max-height: 300px;
+    }
+
+}

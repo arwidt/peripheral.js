@@ -1,0 +1,7 @@
+
+.description {
+    @include container();
+
+    background: green;
+    height: 1000px;
+}
