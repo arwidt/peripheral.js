@@ -1,6 +1,6 @@
 .top-menu {
     @include container();
 
-    background: red;
+    background: $colors__background-1;
     height: 100px;
 }

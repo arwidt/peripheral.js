@@ -13,7 +13,7 @@ html {
 
 body {
 	@extend %typography__typography-standard;
-	background-color: $colors__background-primary;
+	background-color: $colors__background-default;
     overflow-x: hidden;
     overflow-y: auto;
     -webkit-font-smoothing: antialiased;

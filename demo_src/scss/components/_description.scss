@@ -1,7 +1,7 @@
 
 .description {
-    @include container();
+    @extend %content-section;
 
-    background: green;
+    background: $colors__background-3;
     height: 1000px;
 }

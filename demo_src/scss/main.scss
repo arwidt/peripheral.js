@@ -14,6 +14,9 @@
 @import "utilities/mixins/typography-mixins";
 @import "utilities/mixins/animation-mixins";
 
+// Extends
+@import "utilities/extends/layout-extends";
+
 @import "base/normalize";
 @import "base/base";
 @import "base/typography";
@@ -22,8 +25,3 @@
 @import "components/hero";
 @import "components/description";
 @import "components/demo-area";
-
-.wrapper {
-    @include container();
-    background: blue;
-}

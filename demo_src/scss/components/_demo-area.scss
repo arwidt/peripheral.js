@@ -1,7 +1,7 @@
 
 .demo-area {
-    @include container();
+    @extend %content-section;
 
-    background: yellow;
+    background: $colors__background-4;
     height: auto;
 }
