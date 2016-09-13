@@ -20,54 +20,9 @@ var onError = function (err) {
     console.log(err);
 };
 
-
-gulp.task('dev', function() {
-    gulp.src('src/peripheral.js')
-    .pipe(uglify())
-    .pipe(concat('peripheral.min.js'))
-    .pipe(gulp.dest('./src/'));
-});
-
 gulp.task('default', function() {
-
-    livereload({start: true});
-
-    connect.server({
-        root: './'
-    });
-
-    watch(['!src/**/*.min.js', 'src/**/*.js', '**/*.html', 'demo_src/**/*.(scss|js|html)'], function () {
-        rs('dist', 'demo', livereload.reload);
-    });
-
-});
-
-gulp.task('dist', function() {
     gulp.src('src/peripheral.js')
     .pipe(uglify())
     .pipe(concat('peripheral.min.js'))
     .pipe(gulp.dest('./dist/'));
-});
-
-gulp.task('demo', function() {
-
-    gulp.src('demo_src/js/main.js')
-    .pipe(uglify())
-    .pipe(concat('main.min.js'))
-    .pipe(gulp.dest('./js/'));
-
-
-    gulp.src('demo_src/scss/main.scss')
-    .pipe(plumber({
-        errorHandler: onError
-    }))
-    .pipe(sourcemaps.init())
-    .pipe(sass({style: 'compact', errLogToConsole: true}))
-    .pipe(autoprefixer())
-    .pipe(sourcemaps.write())
-    .pipe(gulp.dest('css/'))
-    .pipe(cssnano())
-    .pipe(rename({ extname: '.css' }))
-    .pipe(gulp.dest('css/'));
-
 });
